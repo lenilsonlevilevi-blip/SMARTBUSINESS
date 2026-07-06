@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h1>Clientes</h1>
+
+    <button class="btn btn-primary">
+        + Novo Cliente
+    </button>
+
+</div>
+
+<table class="table table-striped table-hover">
+
+    <thead>
+
+        <tr>
+
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Cidade</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+
+            <td>João Silva</td>
+            <td>(51)99999-9999</td>
+            <td>joao@email.com</td>
+            <td>Canoas</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Maria Souza</td>
+            <td>(51)98888-8888</td>
+            <td>maria@email.com</td>
+            <td>Esteio</td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+{% endblock %}

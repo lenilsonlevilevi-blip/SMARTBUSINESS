@@ -1,0 +1,42 @@
+/* Fundo do sistema */
+body{
+    background-color: #F8FAFC;
+}
+
+/* Menu lateral */
+aside{
+    background: #1E3A8A !important;
+}
+
+/* Logo */
+aside h3{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Links do menu */
+.nav-link{
+    border-radius: 8px;
+    margin-bottom: 6px;
+    transition: .3s;
+}
+
+.nav-link:hover{
+    background: rgba(255,255,255,.15);
+}
+
+/* Cards */
+.card{
+    border: none;
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+h1{
+    font-weight: bold;
+}

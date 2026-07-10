@@ -21,6 +21,7 @@
             <th>Telefone</th>
             <th>E-mail</th>
             <th>Cidade</th>
+            <th>Ações</th>
 
         </tr>
 
@@ -32,10 +33,16 @@
 
 <tr>
 
-    <td>{{ cliente.nome }}</td>
-    <td>{{ cliente.telefone }}</td>
-    <td>{{ cliente.email }}</td>
-    <td>{{ cliente.cidade }}</td>
+   <td>{{ cliente["nome"] }}</td>
+    <td>{{ cliente["telefone"] }}</td>
+    <td>{{ cliente["email"] }}</td>
+    <td>{{ cliente["cidade"] }}</td>
+
+    <td>
+        <a href="/clientes/editar/{{ cliente['id'] }}" class="btn btn-sm btn-primary">
+            Editar
+        </a>
+   </td>
 
 </tr>
 

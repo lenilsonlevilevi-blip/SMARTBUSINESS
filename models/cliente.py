@@ -40,3 +40,28 @@ def adicionar_cliente(nome, telefone, email, cidade):
 
     banco.commit()
     banco.close()
+
+def buscar_cliente_id(id):
+
+    banco = conectar()
+
+    cliente = banco.execute("""
+        SELECT * FROM clientes WHERE id = ?
+    """, (id,)).fetchone()
+
+    banco.close()
+
+    return cliente
+
+def editar_cliente(id, nome, telefone, email, cidade):
+
+    banco = conectar()
+
+    banco.execute("""
+                  UPDATE clientes set nome = ?, telefone = ?, email = ?, cidade = ? where id = ?""",
+                   (nome, telefone, email, cidade,id))
+    
+    banco.commit()
+    banco.close()
+    
+    

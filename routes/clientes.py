@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from models.cliente import buscar_clientes, adicionar_cliente
+from models.cliente import buscar_clientes, adicionar_cliente, editar_cliente, buscar_cliente_id
 
 
 clientes = Blueprint("clientes", __name__)
@@ -9,6 +9,7 @@ clientes = Blueprint("clientes", __name__)
 def index():
 
     lista_clientes = buscar_clientes()
+
 
     return render_template(
         "clientes.html",
@@ -36,3 +37,31 @@ def novo():
         return redirect("/clientes")
 
     return render_template("novo_cliente.html")
+
+
+@clientes.route("/clientes/editar/<int:id>", methods=["GET", "POST"])
+def editar(id):
+
+    if request.method == "POST":
+
+        nome = request.form["nome"]
+        telefone = request.form["telefone"]
+        email = request.form["email"]
+        cidade = request.form["cidade"]
+
+        editar_cliente(
+            id,
+            nome,
+            telefone,
+            email,
+            cidade
+        )
+
+        return redirect("/clientes")
+
+    cliente = buscar_cliente_id(id)
+
+    return render_template(
+        "editar_cliente.html",
+        cliente=cliente
+    )

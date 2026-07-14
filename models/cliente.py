@@ -64,4 +64,14 @@ def editar_cliente(id, nome, telefone, email, cidade):
     banco.commit()
     banco.close()
     
+
+def excluir_cliente(id):
     
+    banco = conectar()
+
+    banco.execute("""
+        DELETE FROM clientes WHERE id=?
+                  """,(id,))
+    
+    banco.commit()
+    banco.close()

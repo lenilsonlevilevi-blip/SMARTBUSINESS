@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from models.cliente import buscar_clientes, adicionar_cliente, editar_cliente, buscar_cliente_id
+from models.cliente import buscar_clientes, adicionar_cliente, editar_cliente, buscar_cliente_id, excluir_cliente
 
 
 clientes = Blueprint("clientes", __name__)
@@ -65,3 +65,10 @@ def editar(id):
         "editar_cliente.html",
         cliente=cliente
     )
+
+@clientes.route("/clientes/excluir/<int:id>", methods=["POST"])
+def excluir_cliente_route(id):
+
+    excluir_cliente(id)
+
+    return redirect("/clientes")

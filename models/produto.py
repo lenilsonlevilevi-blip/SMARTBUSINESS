@@ -67,3 +67,39 @@ def adicionar_produto(
 
     banco.commit()
     banco.close()
+
+def buscar_produto_id(id):
+    banco = conectar()
+
+    produto = banco.execute("""
+        SELECT * FROM produtos WHERE id = ?
+    """, (id,)).fetchone()
+
+    banco.close()
+    return produto
+
+def editar_produto(
+    id,
+    nome,
+    codigo,
+    categoria,
+    preco_compra,
+    preco_venda,
+    estoque,
+    estoque_minimo
+):
+    banco = conectar()
+
+    banco.execute("""
+            UPDATE produtos SET 
+                nome = ?,
+                codigo = ?,
+                categoria = ?,
+                preco_compra = ?,
+                preco_venda = ?,
+                estoque = ?,
+                estoque_minimo = ? WHERE id = ?""",(nome, codigo, categoria, preco_compra, preco_venda, estoque, estoque_minimo, id))
+        
+    banco.commit()
+    banco.close()
+    
